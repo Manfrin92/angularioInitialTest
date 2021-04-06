@@ -8,7 +8,6 @@ export class ProductListComponent {
   pageTitle = 'Product List';
   imageWidth = 50;
   imageMargin = 2;
-
   products: any[] = [
     {
       productId: 1,
@@ -31,4 +30,9 @@ export class ProductListComponent {
       imageUrl: 'assets/images/garden_cart.png',
     },
   ];
+  showImage: boolean = false;
+
+  toggleImage(): void {
+    this.showImage = !this.showImage;
+  }
 }
