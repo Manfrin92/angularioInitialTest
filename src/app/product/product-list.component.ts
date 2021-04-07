@@ -33,13 +33,32 @@ export class ProductListComponent implements OnInit {
     },
   ];
   showImage: boolean = false;
-  listFilter: string = 'cart';
+  private _listFilter: string = '';
+  filteredProducts: IProduct[] = [];
+
+  performFilter(filterBy: string): IProduct[] {
+    filterBy = filterBy.toLowerCase();
+    return this.products.filter((product) =>
+      product.productName.toLowerCase().includes(filterBy)
+    );
+  }
+
+  get listFilter(): string {
+    return this._listFilter;
+  }
+
+  set listFilter(value: string) {
+    console.log('setando: ', this._listFilter);
+    this._listFilter = value;
+    this.filteredProducts = this.performFilter(value);
+  }
 
   toggleImage(): void {
     this.showImage = !this.showImage;
   }
 
   ngOnInit(): void {
-    console.log('olar');
+    console.log('valor do listFilter ', this.listFilter);
+    this.listFilter = 'cart';
   }
 }
