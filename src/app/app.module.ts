@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './product/product-list.component';
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
 import { ConvertToBrazilianNumber } from './shared/convert-to-brazilian-number.pipe';
+import { StarComponent } from './shared/star.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ConvertToBrazilianNumber } from './shared/convert-to-brazilian-number.p
     ProductListComponent,
     ConvertToSpacesPipe,
     ConvertToBrazilianNumber,
+    StarComponent,
   ],
   imports: [BrowserModule, FormsModule],
   bootstrap: [AppComponent],

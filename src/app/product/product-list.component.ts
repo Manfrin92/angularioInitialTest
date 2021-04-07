@@ -33,7 +33,6 @@ export class ProductListComponent implements OnInit {
     },
   ];
   showImage: boolean = false;
-  private _listFilter: string = '';
   filteredProducts: IProduct[] = [];
 
   performFilter(filterBy: string): IProduct[] {
@@ -43,22 +42,27 @@ export class ProductListComponent implements OnInit {
     );
   }
 
+  private _listFilter: string = '';
+
   get listFilter(): string {
     return this._listFilter;
   }
 
   set listFilter(value: string) {
-    console.log('setando: ', this._listFilter);
     this._listFilter = value;
     this.filteredProducts = this.performFilter(value);
+  }
+
+  ngOnInit(): void {
+    this.listFilter = 'cart';
   }
 
   toggleImage(): void {
     this.showImage = !this.showImage;
   }
 
-  ngOnInit(): void {
-    console.log('valor do listFilter ', this.listFilter);
-    this.listFilter = 'cart';
+  onRatingClicked(message: string): void {
+    console.log('msg recebida no pai: ', message);
+    this.pageTitle = `Clicked: ${message}`;
   }
 }
