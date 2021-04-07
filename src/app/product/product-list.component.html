@@ -45,10 +45,16 @@
               />
             </td>
             <td>{{ product.productName }}</td>
-            <td>{{ product.productCode | lowercase }}</td>
+            <td>
+              {{ product.productCode | lowercase | convertToSpaces: "-" }}
+            </td>
             <td>{{ product.releaseDate }}</td>
             <td>
-              {{ product.price | currency: "R$ ":"symbol":"1.2-2" }}
+              {{
+                product.price
+                  | currency: "R$ ":"symbol":"1.2-2"
+                  | convertToBrazilianNumber: product.price
+              }}
             </td>
             <td>{{ product.starRating }}</td>
           </tr>
